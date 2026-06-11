@@ -1,0 +1,129 @@
+.banner {
+  background: linear-gradient(180deg, #eef8ff 0%, #ffffff 100%);
+  padding: 0 24px 20px;
+}
+
+.inner {
+  max-width: 1124px;
+  min-height: 104px;
+  margin: 0 auto;
+  padding: 17px 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #bdd8f7;
+  border-radius: 9px;
+}
+
+.promo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 54px;
+  border-right: 1px solid #d4e5f7;
+}
+
+.giftIcon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  color: #066ce8;
+  border: 1px solid #cfe2f7;
+  border-radius: 6px;
+}
+
+.promoText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.promoText span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #071122;
+}
+
+.promoText strong {
+  font-size: 18px;
+  color: #066ce8;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 74px;
+}
+
+.value {
+  min-width: 58px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font);
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 1;
+  color: #066ce8;
+  letter-spacing: 0;
+  border: 1px solid #d6e7f9;
+  border-radius: 7px;
+  background: #ffffff;
+}
+
+.label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #071122;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.colon {
+  position: absolute;
+  top: 4px;
+  right: -17px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #066ce8;
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .inner {
+    justify-content: center;
+    padding: 18px;
+  }
+
+  .promo {
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .timer {
+    gap: 8px;
+  }
+
+  .unit {
+    min-width: 58px;
+  }
+
+  .value {
+    min-width: 48px;
+    height: 40px;
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,178 @@
+.section {
+  background: #f8fbff;
+  border-top: 1px solid #e0f0ff;
+  padding: 96px 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #066ce8;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  color: #071122;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 260px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 96px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #d2e4f7;
+  border-radius: 9px;
+  box-shadow: 0 12px 28px rgba(0, 91, 182, 0.04);
+}
+
+.iconCircle {
+  width: 66px;
+  height: 66px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: #066ce8;
+  border: 1px solid #d6e8fa;
+  border-radius: 50%;
+  background: #f8fbff;
+}
+
+.rightCard:last-child .iconCircle {
+  color: #f3bf14;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardText strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: #071122;
+  white-space: pre-line;
+  line-height: 1.1;
+}
+
+.cardText p {
+  font-size: 14px;
+  color: #071122;
+  line-height: 1.25;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.connector {
+  position: absolute;
+  top: 50%;
+  width: 86px;
+  height: 1px;
+  background: #8bc2ff;
+}
+
+.connector::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #066ce8;
+  box-shadow: 0 0 0 3px rgba(6, 108, 232, 0.12);
+}
+
+.leftCard .connector {
+  right: -86px;
+}
+
+.leftCard .connector::after {
+  right: -4px;
+}
+
+.rightCard .connector {
+  left: -86px;
+}
+
+.rightCard .connector::after {
+  left: -4px;
+}
+
+.centerVial {
+  position: relative;
+  height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vialGlow {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 2px;
+  height: 42px;
+  background: radial-gradient(ellipse, rgba(6, 108, 232, 0.22), transparent 70%);
+}
+
+.vialImg {
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px rgba(6, 108, 232, 0.24));
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .centerVial {
+    display: none;
+  }
+
+  .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,134 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1.02fr;
+  align-items: center;
+  gap: 48px;
+  padding: 96px 4.4% 96px;
+  background:
+    radial-gradient(circle at 16% 58%, rgba(6, 108, 232, 0.08), transparent 26%),
+    linear-gradient(90deg, #f6fbff 0%, #ffffff 50%, #f5fbff 100%);
+}
+
+.imageWrap {
+  position: relative;
+  height: 382px;
+  border-radius: var(--r-lg);
+  overflow: visible;
+}
+
+.molecule {
+  object-fit: contain;
+}
+
+.copy {
+  max-width: 570px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.title {
+  font-size: 29px;
+  font-weight: 800;
+  color: #071122;
+  letter-spacing: -0.5px;
+  margin: 9px 0 0;
+}
+
+.divider {
+  width: 54px;
+  height: 3px;
+  background: #066ce8;
+  border-radius: 2px;
+  margin: 17px 0 22px;
+}
+
+.copy p {
+  max-width: 500px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #071122;
+  margin-bottom: 14px;
+}
+
+.traits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 24px 0 28px;
+}
+
+.trait {
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 10px;
+  border-right: 1px solid #d0e0f2;
+  text-align: center;
+}
+
+.trait:last-child {
+  border-right: none;
+}
+
+.traitIcon {
+  color: #066ce8;
+  display: grid;
+  place-items: center;
+}
+
+.trait small {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #071122;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 184px;
+  height: 40px;
+  padding: 0 22px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: #066ce8;
+  border-radius: 5px;
+  width: fit-content;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+
+.btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    padding: 42px 7%;
+    gap: 24px;
+  }
+
+  .imageWrap {
+    height: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  .traits {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 18px;
+  }
+
+  .trait:nth-child(2) {
+    border-right: none;
+  }
+}

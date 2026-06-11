@@ -1,0 +1,45 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fbff;
+}
+
+.sidebar {
+  width: 240px;
+  background: #020d21;
+  color: #e7f5ff;
+  padding: 32px 20px;
+  flex-shrink: 0;
+}
+
+.brand {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #7dd8ff;
+  margin-bottom: 32px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.navLink {
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #8fb3cc;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+}

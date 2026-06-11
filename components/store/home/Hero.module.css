@@ -1,0 +1,221 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 62%, rgba(7, 126, 245, 0.16), transparent 21%),
+    radial-gradient(circle at 57% 18%, rgba(7, 126, 245, 0.08), transparent 16%),
+    linear-gradient(90deg, #ffffff 0%, #f8fcff 42%, #eef8ff 100%);
+  padding: 96px 0 64px;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  inset: auto -8% -24% 42%;
+  height: 260px;
+  background: radial-gradient(ellipse, rgba(6, 116, 232, 0.18), transparent 68%);
+  pointer-events: none;
+}
+
+.dna {
+  position: absolute;
+  top: 8px;
+  right: -48px;
+  width: 360px;
+  height: 160px;
+  opacity: 0.32;
+  background:
+    repeating-linear-gradient(28deg, transparent 0 12px, rgba(12, 118, 230, 0.35) 13px 15px, transparent 16px 28px),
+    radial-gradient(circle, rgba(12, 118, 230, 0.35) 2px, transparent 3px);
+  border-radius: 50%;
+  transform: rotate(10deg);
+}
+
+.moleculeOne,
+.moleculeTwo {
+  position: absolute;
+  width: 140px;
+  height: 120px;
+  opacity: 0.42;
+  background-image: url('/images/molecule.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.moleculeOne {
+  top: 80px;
+  left: 43%;
+}
+
+.moleculeTwo {
+  right: 4%;
+  bottom: 140px;
+  transform: scale(0.75) rotate(18deg);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 38px;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  align-items: center;
+  gap: 26px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 18px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #e7f2ff;
+  border-radius: 999px;
+  color: #0067e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 13px;
+  height: 13px;
+  margin-right: 8px;
+  background: currentColor;
+  clip-path: polygon(50% 0, 60% 36%, 100% 25%, 68% 50%, 100% 75%, 60% 64%, 50% 100%, 40% 64%, 0 75%, 32% 50%, 0 25%, 40% 36%);
+}
+
+.headline {
+  font-size: clamp(42px, 4vw, 55px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -2px;
+  color: #071122;
+  margin-bottom: 14px;
+}
+
+.headline em {
+  font-style: normal;
+  color: #086fe8;
+}
+
+.sub {
+  font-size: 18px;
+  line-height: 1.45;
+  color: #071122;
+  margin-bottom: 26px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 45px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.btnPrimary {
+  gap: 8px;
+  color: #fff;
+  background: #066ce8;
+  box-shadow: 0 10px 22px rgba(6, 108, 232, 0.18);
+}
+
+.btnGhost {
+  color: #066ce8;
+  border: 1px solid #066ce8;
+  background: #fff;
+}
+
+.trustLine {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #071122;
+  flex-wrap: wrap;
+}
+
+.stars {
+  color: #11b77f;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #a9caee;
+  flex-shrink: 0;
+}
+
+.shipping {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #071122;
+}
+
+.shipping svg {
+  color: #066ce8;
+}
+
+.imageWrap {
+  position: relative;
+  height: 600px;
+  overflow: visible;
+}
+
+.vialsImg {
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 26px 30px rgba(6, 108, 232, 0.2));
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 64px 0 48px;
+    min-height: auto;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+
+  .imageWrap {
+    height: 330px;
+    order: -1;
+  }
+
+  .moleculeOne,
+  .moleculeTwo,
+  .dna {
+    display: none;
+  }
+}

@@ -1,0 +1,74 @@
+.trustBar {
+  background: #ffffff;
+  border-top: 1px solid #e0f0ff;
+  border-bottom: 1px solid #e0f0ff;
+  padding: 24px 0;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  position: relative;
+}
+
+.iconWrap {
+  color: #0f7cf5;
+  display: grid;
+  place-items: center;
+}
+
+.textWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.textWrap strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: #061126;
+}
+
+.textWrap span {
+  font-size: 11px;
+  color: #6b8aaa;
+}
+
+.divider {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 24px;
+  background: #e0f0ff;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .feature {
+    min-width: 40%;
+  }
+  .divider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature {
+    min-width: 100%;
+  }
+}

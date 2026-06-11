@@ -1,0 +1,149 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #d8e8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 310px;
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 102, 204, 0.1);
+}
+
+.badge {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  z-index: 3;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #066ce8;
+  padding: 6px 9px;
+  border-radius: 4px;
+}
+
+.badge.sale {
+  background: #dd202e;
+}
+
+.heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  color: #071122;
+  line-height: 1;
+  padding: 2px;
+  transition: color var(--t-fast), transform var(--t-fast);
+}
+
+.heart:hover,
+.heart.wished {
+  color: #dd202e;
+}
+
+.heart:hover {
+  transform: scale(1.08);
+}
+
+.imageLink {
+  display: block;
+}
+
+.imageWrap {
+  position: relative;
+  height: 162px;
+  background: linear-gradient(180deg, #fbfdff 0%, #f2f8ff 100%);
+}
+
+.img {
+  object-fit: contain;
+  padding: 14px 22px 8px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 4px 15px 15px;
+  flex: 1;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #071122;
+  margin-bottom: 9px;
+  transition: color var(--t-fast);
+}
+
+.name:hover {
+  color: #066ce8;
+}
+
+.purityRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 13px;
+  flex-wrap: wrap;
+}
+
+.purityTag,
+.coaTag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #e8f3ff;
+  color: #066ce8;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 800;
+  color: #071122;
+}
+
+.original {
+  font-size: 12px;
+  color: #939daa;
+  text-decoration: line-through;
+}
+
+.cartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 33px;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: #066ce8;
+  border-radius: 5px;
+  transition: opacity var(--t-fast), box-shadow var(--t-base);
+  margin-top: auto;
+}
+
+.cartBtn:hover {
+  opacity: 0.92;
+  box-shadow: 0 8px 18px rgba(15, 124, 245, 0.25);
+}

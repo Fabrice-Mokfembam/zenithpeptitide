@@ -1,0 +1,280 @@
+.footer {
+  background: #ffffff;
+  color: #3a5070;
+  border-top: 1px solid #e0f0ff;
+  font-size: 11px;
+}
+
+/* ── Grid ── */
+.grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1.2fr 1.2fr 1fr;
+  gap: 32px;
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #061126;
+}
+
+.hex {
+  width: 32px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #0f7cf5;
+  border: 2px solid #0f7cf5;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoText strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: #061126;
+  letter-spacing: 2px;
+}
+
+.logoText small {
+  font-size: 6px;
+  letter-spacing: 3px;
+  color: #0f7cf5;
+  margin-top: 2px;
+}
+
+.brand p {
+  color: #6b8aaa;
+  line-height: 1.5;
+}
+
+.socials {
+  display: flex;
+  gap: 8px;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #0f7cf5;
+  border: 1px solid #cce5ff;
+  transition: all 0.2s;
+}
+
+.socials a:hover {
+  background: #f0f8ff;
+  border-color: #0f7cf5;
+}
+
+/* ── Column ── */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.col h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #061126;
+  margin-bottom: 4px;
+}
+
+.col a {
+  color: #3a5070;
+  transition: color var(--t-fast);
+}
+
+.col a:hover {
+  color: #0f7cf5;
+}
+
+.iconLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3a5070;
+}
+
+.iconLine svg {
+  color: #0f7cf5;
+  flex-shrink: 0;
+}
+
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  color: #0f7cf5;
+  border: 1px solid #cce5ff;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  width: fit-content;
+  margin-top: 4px;
+  transition: all 0.2s;
+}
+
+.outlineBtn:hover {
+  background: #f0f8ff;
+  border-color: #0f7cf5;
+}
+
+/* ── Newsletter ── */
+.offer {
+  font-size: 12px;
+  color: #0f7cf5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #cce5ff;
+  border-radius: var(--r-sm);
+  color: #061126;
+  font-size: 11px;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #0f7cf5;
+}
+
+.subBtn {
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: #0f7cf5;
+  border-radius: var(--r-sm);
+  transition: opacity 0.2s;
+}
+
+.subBtn:hover {
+  opacity: 0.9;
+}
+
+/* ── Map ── */
+.mapWrap {
+  margin-top: 4px;
+  height: 60px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid #cce5ff;
+  background: #f8fbff;
+}
+
+.mapPlaceholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background-image: radial-gradient(#e0f0ff 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.pin {
+  font-size: 14px;
+}
+
+.mapText {
+  font-size: 9px;
+  font-weight: 600;
+  color: #061126;
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  border-top: 1px solid #e0f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sep {
+  color: #cce5ff;
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #061126;
+}
+
+.stars {
+  background: #13a77c;
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

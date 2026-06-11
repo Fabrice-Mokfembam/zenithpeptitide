@@ -1,0 +1,42 @@
+.bar {
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: linear-gradient(90deg, #0587ff 0%, #0064e7 48%, #0487ff 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.bar strong {
+  font-weight: 800;
+}
+
+.item {
+  white-space: nowrap;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  .bar {
+    gap: 10px;
+    font-size: 11px;
+    padding: 0 10px;
+  }
+
+  .item {
+    white-space: normal;
+  }
+}

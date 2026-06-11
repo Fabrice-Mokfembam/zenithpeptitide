@@ -1,26 +1,132 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Syne:wght@600;700;800&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --c-blue: #0f7cf5;
+  --c-blue-dark: #0555c4;
+  --c-blue-light: #36c5ff;
+  --c-sky: #e8f4ff;
+  --c-navy: #020c1e;
+  --c-navy-mid: #041938;
+  --c-ink: #061126;
+  --c-white: #ffffff;
+  --c-off-white: #f8fbff;
+  --c-border: #acd7ff;
+  --c-muted: #6b8aaa;
+  --c-text: #0d1f38;
+  --c-red: #e9353e;
+  --c-green: #13a77c;
+  --c-surface: rgba(255, 255, 255, 0.65);
+  --c-glass: rgba(2, 25, 55, 0.72);
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --font: 'DM Sans', Arial, Helvetica, sans-serif;
+  --font-heading: 'Syne', Arial, Helvetica, sans-serif;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 20px;
+  --r-full: 9999px;
+  --shadow-card: 0 4px 24px rgba(0, 102, 204, 0.10);
+  --shadow-hover: 0 15px 40px rgba(0, 102, 204, 0.18);
+  --shadow-glow: 0 0 20px rgba(0, 153, 255, 0.25);
+  --t-fast: 150ms ease;
+  --t-base: 250ms ease;
+  --t-slow: 400ms ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font);
+  background: var(--c-white);
+  color: var(--c-text);
+  line-height: 1.5;
 }
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--c-blue);
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Mobile: prevent horizontal overflow without breaking position: sticky ── */
+html, body {
+  overflow-x: clip;
+}
+
+/* ── Mobile: extra bottom padding for bottom tab bar ── */
+@media (max-width: 768px) {
+  .store-content {
+    padding-bottom: 72px;
+  }
+}
+
