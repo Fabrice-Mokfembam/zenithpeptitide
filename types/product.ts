@@ -2,6 +2,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
+  category?: 'Peptides' | 'Research Chemicals' | 'Peptide Blends' | 'Amino Acids';
   price: number;
   originalPrice?: number;
   purity: string;

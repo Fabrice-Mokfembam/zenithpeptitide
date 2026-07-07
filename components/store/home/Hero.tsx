@@ -58,7 +58,9 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <span className={styles.stars}>★★★★★</span>
+            <span className={styles.stars} aria-label="5 star rating">
+              <span aria-hidden>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            </span>
             <span>Trustpilot</span>
             <span className={styles.divider} />
             <span>347 Reviews</span>

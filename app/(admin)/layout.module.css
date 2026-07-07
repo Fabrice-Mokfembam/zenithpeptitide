@@ -5,19 +5,23 @@
 }
 
 .sidebar {
-  width: 240px;
-  background: #020d21;
+  width: 260px;
+  background: linear-gradient(180deg, #020d21 0%, #041938 100%);
   color: #e7f5ff;
   padding: 32px 20px;
   flex-shrink: 0;
+  border-right: 1px solid rgba(172, 215, 255, 0.16);
 }
 
 .brand {
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 2px;
   color: #7dd8ff;
   margin-bottom: 32px;
+  padding: 12px 14px;
+  border: 1px solid rgba(125, 216, 255, 0.28);
+  border-radius: var(--r-md);
 }
 
 .nav {
@@ -28,18 +32,43 @@
 }
 
 .navLink {
-  padding: 10px 14px;
-  border-radius: 6px;
-  color: #8fb3cc;
+  padding: 12px 14px;
+  border-radius: var(--r-sm);
+  color: #acc8dc;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .navLink:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 124, 245, 0.16);
   color: #ffffff;
 }
 
 .main {
   flex: 1;
   overflow: auto;
+}
+
+@media (max-width: 820px) {
+  .shell {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .brand {
+    margin-bottom: 14px;
+  }
+
+  .nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .navLink {
+    white-space: nowrap;
+  }
 }

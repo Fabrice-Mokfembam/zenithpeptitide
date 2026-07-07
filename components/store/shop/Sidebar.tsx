@@ -5,15 +5,47 @@ import { motion } from 'framer-motion';
 import { fadeUp, slideLeft } from '@/lib/motion';
 import styles from './Sidebar.module.css';
 
-const CATEGORIES = [
-  { name: 'All Products', count: 32, active: true },
-  { name: 'Peptides', count: 18 },
-  { name: 'Research Chemicals', count: 8 },
-  { name: 'Peptide Blends', count: 4 },
-  { name: 'Amino Acids', count: 2 },
+export type ProductCategory = 'All Products' | 'Peptides' | 'Research Chemicals' | 'Peptide Blends' | 'Amino Acids';
+
+const CATEGORIES: ProductCategory[] = [
+  'All Products',
+  'Peptides',
+  'Research Chemicals',
+  'Peptide Blends',
+  'Amino Acids',
 ];
 
-export default function Sidebar() {
+type SidebarProps = {
+  category: ProductCategory;
+  categoryCounts: Record<string, number>;
+  inStockOnly: boolean;
+  maxPrice: number;
+  purity: string;
+  showWishlistOnly: boolean;
+  wishlistCount: number;
+  onCategoryChange: (category: ProductCategory) => void;
+  onClear: () => void;
+  onInStockOnlyChange: (value: boolean) => void;
+  onMaxPriceChange: (value: number) => void;
+  onPurityChange: (value: string) => void;
+  onShowWishlistOnlyChange: (value: boolean) => void;
+};
+
+export default function Sidebar({
+  category,
+  categoryCounts,
+  inStockOnly,
+  maxPrice,
+  purity,
+  showWishlistOnly,
+  wishlistCount,
+  onCategoryChange,
+  onClear,
+  onInStockOnlyChange,
+  onMaxPriceChange,
+  onPurityChange,
+  onShowWishlistOnlyChange,
+}: SidebarProps) {
   const [purityOpen, setPurityOpen] = useState(true);
   const [priceOpen, setPriceOpen] = useState(true);
   const [stockOpen, setStockOpen] = useState(true);
@@ -27,17 +59,22 @@ export default function Sidebar() {
       whileInView="show"
       viewport={{ once: true, margin: '-50px' }}
     >
-      {/* Categories */}
       <div className={styles.section}>
         <div className={styles.header}>
           <h3>Categories</h3>
           <span className={styles.chevron}>^</span>
         </div>
         <ul className={styles.list}>
-          {CATEGORIES.map((cat) => (
-            <li key={cat.name} className={`${styles.listItem} ${cat.active ? styles.active : ''}`}>
-              <span>{cat.name}</span>
-              <span className={styles.count}>({cat.count})</span>
+          {CATEGORIES.map((item) => (
+            <li key={item}>
+              <button
+                type="button"
+                className={`${styles.listItem} ${category === item ? styles.active : ''}`}
+                onClick={() => onCategoryChange(item)}
+              >
+                <span>{item}</span>
+                <span className={styles.count}>({categoryCounts[item] ?? 0})</span>
+              </button>
             </li>
           ))}
         </ul>
@@ -45,53 +82,59 @@ export default function Sidebar() {
 
       <div className={styles.divider} />
 
-      {/* Filters Header */}
       <div className={styles.filtersHeader}>
         <h3>Filters</h3>
-        <button className={styles.clearBtn}>Clear All</button>
+        <button className={styles.clearBtn} type="button" onClick={onClear}>Clear All</button>
       </div>
 
-      {/* Purity */}
       <div className={styles.section}>
-        <div className={styles.header} onClick={() => setPurityOpen(!purityOpen)}>
+        <button className={styles.header} type="button" onClick={() => setPurityOpen(!purityOpen)}>
           <h4 className={styles.subHeader}>Purity</h4>
           <span className={`${styles.chevron} ${!purityOpen ? styles.closed : ''}`}>^</span>
-        </div>
+        </button>
         {purityOpen && (
           <div className={styles.checkboxGroup}>
-            <label className={styles.checkboxLabel}>
-              <input type="checkbox" defaultChecked />
-              <span className={styles.checkmark}></span>
-              <span className={styles.checkText}>99%+ <span className={styles.count}>(28)</span></span>
-            </label>
-            <label className={styles.checkboxLabel}>
-              <input type="checkbox" />
-              <span className={styles.checkmark}></span>
-              <span className={styles.checkText}>98%+ <span className={styles.count}>(4)</span></span>
-            </label>
+            {[
+              ['all', 'Any purity'],
+              ['99', '99%+'],
+              ['98', '98%+'],
+            ].map(([value, label]) => (
+              <label className={styles.radioLabel} key={value}>
+                <input
+                  type="radio"
+                  name="purity"
+                  checked={purity === value}
+                  onChange={() => onPurityChange(value)}
+                />
+                <span>{label}</span>
+              </label>
+            ))}
           </div>
         )}
       </div>
 
       <div className={styles.divider} />
 
-      {/* Price Range */}
       <div className={styles.section}>
-        <div className={styles.header} onClick={() => setPriceOpen(!priceOpen)}>
-          <h4 className={styles.subHeader}>Price Range</h4>
+        <button className={styles.header} type="button" onClick={() => setPriceOpen(!priceOpen)}>
+          <h4 className={styles.subHeader}>Max Price</h4>
           <span className={`${styles.chevron} ${!priceOpen ? styles.closed : ''}`}>^</span>
-        </div>
+        </button>
         {priceOpen && (
           <div className={styles.priceFilter}>
-            {/* Simple visual slider representation */}
-            <div className={styles.sliderTrack}>
-              <div className={styles.sliderFill}></div>
-              <div className={styles.sliderThumb} style={{ left: '0%' }}></div>
-              <div className={styles.sliderThumb} style={{ left: '100%' }}></div>
-            </div>
+            <input
+              className={styles.range}
+              type="range"
+              min="30"
+              max="500"
+              step="5"
+              value={maxPrice}
+              onChange={(event) => onMaxPriceChange(Number(event.target.value))}
+            />
             <div className={styles.priceLabels}>
-              <span>$20</span>
-              <span>$500+</span>
+              <span>$30</span>
+              <strong>${maxPrice}</strong>
+              <span>$500</span>
             </div>
           </div>
         )}
@@ -99,18 +142,30 @@ export default function Sidebar() {
 
       <div className={styles.divider} />
 
-      {/* In Stock */}
       <div className={styles.section}>
-        <div className={styles.header} onClick={() => setStockOpen(!stockOpen)}>
-          <h4 className={styles.subHeader}>In Stock</h4>
+        <button className={styles.header} type="button" onClick={() => setStockOpen(!stockOpen)}>
+          <h4 className={styles.subHeader}>Availability</h4>
           <span className={`${styles.chevron} ${!stockOpen ? styles.closed : ''}`}>^</span>
-        </div>
+        </button>
         {stockOpen && (
           <div className={styles.checkboxGroup}>
             <label className={styles.checkboxLabel}>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={inStockOnly}
+                onChange={(event) => onInStockOnlyChange(event.target.checked)}
+              />
               <span className={styles.checkmark}></span>
-              <span className={styles.checkText}>In Stock Only <span className={styles.count}>(28)</span></span>
+              <span className={styles.checkText}>In Stock Only</span>
+            </label>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                checked={showWishlistOnly}
+                onChange={(event) => onShowWishlistOnlyChange(event.target.checked)}
+              />
+              <span className={styles.checkmark}></span>
+              <span className={styles.checkText}>Wishlist <span className={styles.count}>({wishlistCount})</span></span>
             </label>
           </div>
         )}
@@ -118,24 +173,22 @@ export default function Sidebar() {
 
       <div className={styles.divider} />
 
-      {/* Brands */}
       <div className={styles.section}>
-        <div className={styles.header} onClick={() => setBrandsOpen(!brandsOpen)}>
+        <button className={styles.header} type="button" onClick={() => setBrandsOpen(!brandsOpen)}>
           <h4 className={styles.subHeader}>Brands</h4>
           <span className={`${styles.chevron} ${!brandsOpen ? styles.closed : ''}`}>^</span>
-        </div>
+        </button>
         {brandsOpen && (
           <div className={styles.checkboxGroup}>
             <label className={styles.checkboxLabel}>
-              <input type="checkbox" defaultChecked />
+              <input type="checkbox" checked readOnly />
               <span className={styles.checkmark}></span>
-              <span className={styles.checkText}>Zenith Biopeptides <span className={styles.count}>(32)</span></span>
+              <span className={styles.checkText}>Zenith Biopeptides <span className={styles.count}>({categoryCounts['All Products'] ?? 0})</span></span>
             </label>
           </div>
         )}
       </div>
 
-      {/* Shipping Promo */}
       <motion.div
         className={styles.shippingPromo}
         variants={fadeUp}

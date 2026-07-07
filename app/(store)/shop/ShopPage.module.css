@@ -83,11 +83,16 @@
   align-items: start;
 }
 
+.loading {
+  grid-column: 1 / -1;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  color: #3a5070;
+}
+
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
-  }
-  .sidebarCol {
-    display: none; /* Hide sidebar on mobile for now */
   }
 }

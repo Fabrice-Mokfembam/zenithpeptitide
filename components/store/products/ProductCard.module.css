@@ -126,7 +126,8 @@
   text-decoration: line-through;
 }
 
-.cartBtn {
+.cartBtn,
+.buyBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,4 +147,17 @@
 .cartBtn:hover {
   opacity: 0.92;
   box-shadow: 0 8px 18px rgba(15, 124, 245, 0.25);
+}
+
+.buyBtn {
+  min-height: 31px;
+  margin-top: 8px;
+  color: #066ce8;
+  background: #eef7ff;
+  border: 1px solid #cce5ff;
+  box-shadow: none;
+}
+
+.buyBtn:hover {
+  background: #dff0ff;
 }

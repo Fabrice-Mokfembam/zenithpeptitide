@@ -1,6 +1,16 @@
 import type { Product } from './product';
 
-export type OrderStatus = 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+export type OrderStatus =
+  | 'awaiting_payment'
+  | 'paid'
+  | 'processing'
+  | 'shipped'
+  | 'delivered'
+  | 'cancelled';
+
+export type PaymentMethod = 'bitcoin';
+
+export type PaymentStatus = 'awaiting_payment' | 'paid' | 'failed' | 'refunded';
 
 export interface OrderItem {
   product: Product;

@@ -355,7 +355,9 @@ export function ProductDetailPageContent({ slug }: { slug: string }) {
             {product.badge && <span className={styles.tag}>{product.badge}</span>}
             <span className={styles.stock}>In Stock</span>
             <h1>{product.name}</h1>
-            <div className={styles.stars}>★★★★★ <span>(347 Reviews)</span></div>
+            <div className={styles.stars}>
+              <span aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span>(347 Reviews)</span>
+            </div>
             <span className={styles.pill}>{product.purity} Purity</span>
             <span className={styles.pill}>COA Available</span>
             <span className={styles.pill}>Lab Tested</span>
@@ -401,7 +403,7 @@ export function ProductDetailPageContent({ slug }: { slug: string }) {
               Add to Cart
             </button>
             <button className={`${styles.btn} ${styles.ghost} ${styles.full}`}>Buy Now</button>
-            <a className={styles.wishlist}>♡ Add to Wishlist (12)</a>
+            <a className={styles.wishlist}>&#9825; Add to Wishlist (12)</a>
           </motion.div>
         </motion.div>
       </section>

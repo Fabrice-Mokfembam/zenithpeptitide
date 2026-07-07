@@ -4,8 +4,17 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, scaleIn } from '@/lib/motion';
 
-export default function CheckoutSuccessPage() {
-  const orderNumber = `#ZEN-${Math.floor(100000 + Math.random() * 900000)}`;
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+
+function SuccessContent() {
+  const searchParams = useSearchParams();
+  const orderNumber = searchParams.get('order') || 'ZEN-PENDING';
+  const isBitcoinPayment = searchParams.get('payment') === 'bitcoin';
+  const title = isBitcoinPayment ? 'Payment Submitted' : 'Order Confirmed!';
+  const message = isBitcoinPayment
+    ? 'Thank you. Your order is awaiting Bitcoin network confirmation and payment review. We will begin processing once payment is verified.'
+    : 'Thank you for your purchase. We have received your order and will begin processing it immediately.';
 
   return (
     <main style={{
@@ -58,7 +67,7 @@ export default function CheckoutSuccessPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Order Confirmed!
+          {title}
         </motion.h1>
         <motion.p
           style={{ color: '#3a5070', fontSize: '14px', marginBottom: '24px', lineHeight: 1.6 }}
@@ -66,7 +75,7 @@ export default function CheckoutSuccessPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          Thank you for your purchase. We have received your order and will begin processing it immediately.
+          {message}
         </motion.p>
 
         <motion.div
@@ -110,4 +119,12 @@ export default function CheckoutSuccessPage() {
       </motion.div>
     </main>
   );
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
+  )
 }

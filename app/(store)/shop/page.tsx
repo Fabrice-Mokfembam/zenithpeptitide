@@ -1,5 +1,5 @@
-import Sidebar from '@/components/store/shop/Sidebar';
-import ProductGrid from '@/components/store/shop/ProductGrid';
+import { Suspense } from 'react';
+import ShopExperience from '@/components/store/shop/ShopExperience';
 import ShopHero from '@/components/store/shop/ShopHero';
 import styles from './ShopPage.module.css';
 
@@ -13,14 +13,10 @@ export default function ShopPage() {
     <main className={styles.main}>
       <ShopHero />
 
-      {/* Main Content Layout */}
       <div className={styles.layout}>
-        <aside className={styles.sidebarCol}>
-          <Sidebar />
-        </aside>
-        <section className={styles.gridCol}>
-          <ProductGrid />
-        </section>
+        <Suspense fallback={<div className={styles.loading}>Loading products...</div>}>
+          <ShopExperience />
+        </Suspense>
       </div>
     </main>
   );

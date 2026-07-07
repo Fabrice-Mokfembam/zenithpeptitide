@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
 
 :root {
   --c-blue: #0f7cf5;
@@ -28,7 +28,7 @@
   --sp-12: 48px;
   --sp-16: 64px;
   --font: 'DM Sans', Arial, Helvetica, sans-serif;
-  --font-heading: 'Syne', Arial, Helvetica, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
   --r-sm: 4px;
   --r-md: 8px;
   --r-lg: 12px;
@@ -118,15 +118,14 @@ ol {
   border: 0;
 }
 
-/* ── Mobile: prevent horizontal overflow without breaking position: sticky ── */
+/* Mobile: prevent horizontal overflow without breaking position: sticky */
 html, body {
   overflow-x: clip;
 }
 
-/* ── Mobile: extra bottom padding for bottom tab bar ── */
+/* Mobile: extra bottom padding for bottom tab bar */
 @media (max-width: 768px) {
   .store-content {
     padding-bottom: 72px;
   }
 }
-

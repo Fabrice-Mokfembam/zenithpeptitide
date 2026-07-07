@@ -1,20 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCartStore } from '@/lib/store';
+import { useHasMounted } from '@/lib/use-has-mounted';
 import { formatPrice } from '@/lib/utils';
 import styles from './CartDrawer.module.css';
 
 export default function CartDrawer() {
   const { items, isDrawerOpen, setDrawerOpen, removeItem, updateQuantity } = useCartStore();
-  const [mounted, setMounted] = useState(false);
-
-  // Prevent hydration errors by only rendering cart contents after mount
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useHasMounted();
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);

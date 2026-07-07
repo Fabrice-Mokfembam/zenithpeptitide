@@ -2,18 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useCartStore } from '@/lib/store';
+import { useHasMounted } from '@/lib/use-has-mounted';
 import styles from './MobileBottomNav.module.css';
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
   const { toggleDrawer, items } = useCartStore();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useHasMounted();
 
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -94,7 +90,7 @@ export default function MobileBottomNav() {
 
       {/* Wishlist */}
       <Link
-        href="/shop"
+        href="/shop?wishlist=1"
         className={styles.tab}
       >
         <span className={styles.iconWrap}>

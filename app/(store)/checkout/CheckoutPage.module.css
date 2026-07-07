@@ -44,7 +44,7 @@
   opacity: 0.9;
 }
 
-/* ── Layout ── */
+/* Layout */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -55,7 +55,7 @@
   align-items: start;
 }
 
-/* ── Left Column (Forms) ── */
+/* Left Column (Forms) */
 .leftCol {
   display: flex;
   flex-direction: column;
@@ -195,6 +195,12 @@
   background: #fafcff;
 }
 
+.bitcoinNote {
+  color: var(--c-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .submitBtn {
   margin-top: 16px;
   width: 100%;
@@ -241,7 +247,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* ── Right Column (Order Summary) ── */
+/* Right Column (Order Summary) */
 .rightCol {
   position: sticky;
   top: 120px;
