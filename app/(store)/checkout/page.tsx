@@ -62,7 +62,7 @@ export default function CheckoutPage() {
 
     const res = await submitOrder(orderData);
 
-    if (res.error) {
+    if ('error' in res) {
       setCheckoutError(res.error);
       setIsSubmitting(false);
     } else if (res.success) {
