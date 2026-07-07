@@ -150,7 +150,9 @@ function validateOrderData(orderData: CheckoutOrderData): { error: string } | { 
   }
 }
 
-export async function submitOrder(orderData: CheckoutOrderData) {
+export async function submitOrder(orderData: CheckoutOrderData): Promise<
+  { error: string } | { success: true; orderNumber: string; totalAmount: number; bitcoinPaymentString: string }
+> {
   const sessionClient = await createClient()
   const bitcoinPaymentString = process.env.NEXT_PUBLIC_BITCOIN_PAYMENT_STRING
 

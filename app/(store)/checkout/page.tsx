@@ -63,7 +63,7 @@ export default function CheckoutPage() {
     const res = await submitOrder(orderData);
 
     if ('error' in res) {
-      setCheckoutError(res.error);
+      setCheckoutError(res.error ?? 'An unexpected error occurred. Please try again.');
       setIsSubmitting(false);
     } else if (res.success) {
       clearCart();
